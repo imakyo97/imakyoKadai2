@@ -19,12 +19,9 @@ class ViewController: UIViewController {
     
     private var total = 0
     
-    //    @IBAction func segumentedControlValueChanged(_ sender: UISegmentedControl) {
-    //
-    //    }
     
-    
-    @IBAction func button(_ sender: UIButton) {
+    @IBAction private func button(_ sender: UIButton) {
+        
         switch segumentedControl.selectedSegmentIndex {
         case 0:
             total = (Int(textFeild1.text!)) ?? 0
@@ -37,11 +34,10 @@ class ViewController: UIViewController {
             total *= (Int(textField2.text!)) ?? 0
         case 3:
             if (Int(textField2.text!)) ?? 0 == 0 {
-                label.text = String("0以外の数字を入れて下さい")
-                return
+                return label.text = String("0以外の数字を入れて下さい")
             }else{
-            total = (Int(textFeild1.text!)) ?? 0
-            total /= (Int(textField2.text!)) ?? 0
+                total = (Int(textFeild1.text!)) ?? 0
+                total /= (Int(textField2.text!)) ?? 0
             }
         default:
             return
