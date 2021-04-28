@@ -17,34 +17,34 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var segumentedControl: UISegmentedControl!
     
-    private var total = 0
-    
-    
     @IBAction private func button(_ sender: UIButton) {
+        
+        let num1 = Int(textFeild1.text!) ?? 0
+        let num2 = Int(textField2.text!) ?? 0
+        let resultText: String
         
         switch segumentedControl.selectedSegmentIndex {
         case 0:
-            total = (Int(textFeild1.text!)) ?? 0
-            total += (Int(textField2.text!)) ?? 0
+            resultText = String(num1 + num2)
         case 1:
-            total = (Int(textFeild1.text!)) ?? 0
-            total -= (Int(textField2.text!)) ?? 0
+            resultText = String(num1 - num2)
         case 2:
-            total = (Int(textFeild1.text!)) ?? 0
-            total *= (Int(textField2.text!)) ?? 0
+            resultText = String(num1 * num2)
         case 3:
-            if (Int(textField2.text!)) ?? 0 == 0 {
-                return label.text = String("0以外の数字を入れて下さい")
+            if num2 == 0 {
+                resultText = String("0以外の数字を入れて下さい")
             }else{
-                total = (Int(textFeild1.text!)) ?? 0
-                total /= (Int(textField2.text!)) ?? 0
+                resultText = String(num1 / num2)
             }
         default:
             return
         }
-        label.text = String(total)
+        
+        label.text = resultText
+        
     }
 }
+
 
 
 
